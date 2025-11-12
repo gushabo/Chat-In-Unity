@@ -13,7 +13,7 @@ public class ChatClient : MonoBehaviour
 {
     [Header("Panels")]
     public GameObject loginPanel;   // Panel: pide nombre
-    public GameObject lobbyPanel;   // Panel: selección de sala (si usas dropdown, puedes mantenerlo)
+    public GameObject lobbyPanel;   // Panel: selección de sala
     public GameObject chatPanel;    // Panel: chat
 
     [Header("Login")]
@@ -69,12 +69,11 @@ public class ChatClient : MonoBehaviour
         if (string.IsNullOrEmpty(playerName)) playerName = "Jugador";
 
         loginPanel.SetActive(false);
-        // Si usas botones directos de sala, puedes ir directo al chat:
-        // pero por claridad dejamos el lobby, o puedes ocultarlo si no lo usas.
         lobbyPanel.SetActive(true);
     }
 
-    // Si usas DROPDOWN/INPUT para elegir sala:
+    // Paso 2
+    // Elegir Sala:
     public void OnJoinRoomPressed()
     {
         string chosen = (roomDropdown && roomDropdown.options.Count > 0)
@@ -89,7 +88,7 @@ public class ChatClient : MonoBehaviour
         _ = ConnectAndJoinAsync();
     }
 
-    // Si usas BOTONES directos (Videojuegos/Anime/Películas/Libros):
+    // Yo uso esta
     public void SelectRoom(string roomName)
     {
         currentRoom = string.IsNullOrEmpty(roomName) ? "general" : roomName.Trim();
@@ -247,9 +246,9 @@ public class ChatClient : MonoBehaviour
 
         await writer.WriteLineAsync(msg);
         // Eco local
-        AppendChat($"<color=#7CFF7C>[Tú]</color> {msg}");
-        messageInput.text = "";
-        messageInput.ActivateInputField();
+        //AppendChat($"<color=#7CFF7C>[Tú]</color> {msg}");
+        //messageInput.text = "";
+        //messageInput.ActivateInputField();
     }
 
     // Actualiza lista de usuarios y header n/5
