@@ -14,7 +14,7 @@ TagManager:
   - Ground
   - Mountain
   - Objects
-  - 
+  - Light
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: Objects
     uniqueID: 2723786215
+    locked: 0
+  - name: Light
+    uniqueID: 1201708601
     locked: 0
   m_RenderingLayers:
   - Default
