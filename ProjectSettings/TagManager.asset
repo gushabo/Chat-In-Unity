@@ -11,11 +11,11 @@ TagManager:
   - 
   - Water
   - UI
-  - Ground
+  - b
   - Mountain
   - Objects
   - Light
-  - 
+  - Bridge
   - 
   - 
   - 
@@ -52,6 +52,9 @@ TagManager:
     locked: 0
   - name: Light
     uniqueID: 1201708601
+    locked: 0
+  - name: Bridge
+    uniqueID: 2201142263
     locked: 0
   m_RenderingLayers:
   - Default
