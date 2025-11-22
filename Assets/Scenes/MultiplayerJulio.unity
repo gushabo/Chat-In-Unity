@@ -15082,7 +15082,7 @@ PrefabInstance:
     - target: {fileID: 8857806192485033990, guid: 1ce03235c6e8ca640a6ce5d33cde640f, type: 3}
       propertyPath: chatContent
       value: 
-      objectReference: {fileID: 659257625}
+      objectReference: {fileID: 1742955854}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17738,11 +17738,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6821102683912889878, guid: 7b6f7a60b865c4c41bb3c5151b7ed6eb, type: 3}
   m_PrefabInstance: {fileID: 658129543}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &659257625 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 785053338615007618, guid: f24276e3bee74b8428285a50d9af4304, type: 3}
-  m_PrefabInstance: {fileID: 440821028}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &659705549
 GameObject:
@@ -41888,6 +41883,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6845459820176518227, guid: f36b73693b58c3547a662d1821ff11e9, type: 3}
   m_PrefabInstance: {fileID: 1739776126}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &1742955854 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 3082578136959549276, guid: f24276e3bee74b8428285a50d9af4304, type: 3}
+  m_PrefabInstance: {fileID: 440821028}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1747506732
 GameObject:

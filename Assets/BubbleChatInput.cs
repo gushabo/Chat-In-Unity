@@ -78,7 +78,7 @@ public class BubbleChatInput : MonoBehaviour
             Debug.LogWarning("[BubbleInput] No se encontró la burbuja del jugador local");
         }
 
-        bubbleInput.text = string.Empty;
+        //bubbleInput.text = string.Empty;
         bubbleInput.ActivateInputField();
     }
 }
