@@ -16,7 +16,7 @@ public class BubbleChatInput : MonoBehaviour
 
     private void Update()
     {
-        // Enter para enviar SOLO si el input está enfocado
+        // Enter para enviar SOLO si el input estï¿½ enfocado
         if (Input.GetKeyDown(KeyCode.Return))
         {
             if (bubbleInput != null && bubbleInput.isFocused)
@@ -43,7 +43,7 @@ public class BubbleChatInput : MonoBehaviour
 
         if (localClient.PlayerObject == null)
         {
-            Debug.LogWarning("[BubbleInput] LocalClient no tiene PlayerObject aún (quizá aún no spawnea)");
+            Debug.LogWarning("[BubbleInput] LocalClient no tiene PlayerObject aï¿½n (quizï¿½ aï¿½n no spawnea)");
             return;
         }
 
@@ -67,7 +67,7 @@ public class BubbleChatInput : MonoBehaviour
         if (string.IsNullOrWhiteSpace(msg)) return;
 
         // LIMPIAR EL TEXTO INMEDIATAMENTE
-        bubbleInput.text = string.Empty;
+        //bubbleInput.text = string.Empty;
 
         if (localBubble == null)
             CacheLocalBubble();
@@ -78,7 +78,7 @@ public class BubbleChatInput : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("[BubbleInput] No se encontró la burbuja del jugador local");
+            Debug.LogWarning("[BubbleInput] No se encontrï¿½ la burbuja del jugador local");
         }
 
         bubbleInput.ActivateInputField();

@@ -64,16 +64,16 @@ RectTransform:
   m_GameObject: {fileID: 340829627440575385}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.53, y: 0.53, z: 0.53}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9044896602191735371}
   m_Father: {fileID: 463646277302968634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -593.18, y: -491.9}
-  m_SizeDelta: {x: 729.64, y: 73.794}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 198, y: 22}
+  m_SizeDelta: {x: 729.64, y: 73.79401}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4807607948054095041
 CanvasRenderer:
@@ -174,7 +174,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7418366197244766638}
+        m_TargetAssemblyTypeName: BubbleChatInput, Assembly-CSharp
+        m_MethodName: SendBubbleMessage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -250,7 +262,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -27.7797, y: -5.6675}
+  m_AnchoredPosition: {x: -27.779724, y: -5.6674805}
   m_SizeDelta: {x: 35.8874, y: -50.0957}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8240405934359517199
@@ -352,6 +364,7 @@ GameObject:
   - component: {fileID: 1686970917793096538}
   - component: {fileID: 7095028394506272126}
   - component: {fileID: 646096578881205533}
+  - component: {fileID: 7418366197244766638}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -443,6 +456,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &7418366197244766638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2374353933399435538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81cd047f25c8e5c458346a758d642f9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bubbleInput: {fileID: 4008610994799027631}
 --- !u!1 &4626671884606329647
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,16 +729,16 @@ RectTransform:
   m_GameObject: {fileID: 5244396657832116416}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.53, y: 0.53, z: 0.53}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4363381905798291469}
   - {fileID: 2024637389201983802}
   m_Father: {fileID: 463646277302968634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -593.1824, y: -227.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 198.19998, y: 154.29999}
   m_SizeDelta: {x: 730, y: 455}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6606554633151458202
@@ -954,7 +980,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.49999237}
+  m_AnchoredPosition: {x: 0, y: -0.5}
   m_SizeDelta: {x: -20, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &843339583617659885
@@ -1099,7 +1125,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.09375, y: -455.4699}
+  m_AnchoredPosition: {x: -0.09375, y: -455.46985}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &885921800710102377

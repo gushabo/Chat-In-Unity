@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3323466926
-  InScenePlacedSourceGlobalObjectIdHash: 0
+  GlobalObjectIdHash: 2211153280
+  InScenePlacedSourceGlobalObjectIdHash: 4246259616
   DeferredDespawnTick: 0
   Ownership: 1
   AlwaysReplicateAsRoot: 0
@@ -74,4 +74,3 @@ MonoBehaviour:
   chatMsg: {fileID: 5018326624833080919, guid: 2efb982cbe4864146b391263e17c29dc, type: 3}
   chatContent: {fileID: 0}
   chatInput: {fileID: 0}
-  playerName: Player

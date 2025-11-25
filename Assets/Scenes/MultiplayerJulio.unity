@@ -11632,6 +11632,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 785053338615007618, guid: f24276e3bee74b8428285a50d9af4304, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -455.46985
+      objectReference: {fileID: 0}
     - target: {fileID: 1187832511383296317, guid: f24276e3bee74b8428285a50d9af4304, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -11683,6 +11687,10 @@ PrefabInstance:
     - target: {fileID: 2374353933399435538, guid: f24276e3bee74b8428285a50d9af4304, type: 3}
       propertyPath: m_Name
       value: Canvas_ChatGeneral
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374353933399435538, guid: f24276e3bee74b8428285a50d9af4304, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4008610994799027631, guid: f24276e3bee74b8428285a50d9af4304, type: 3}
       propertyPath: m_OnEndEdit.m_PersistentCalls.m_Calls.Array.size
