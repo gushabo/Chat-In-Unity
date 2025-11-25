@@ -26,8 +26,6 @@ public class ChatManager : NetworkBehaviour
             print("ChatManager");
             SendChatMessage(chatInput.text, playerName);
             chatInput.text = "";
-
-
         }
     }
 
