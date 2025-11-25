@@ -22,6 +22,7 @@ public class ChatManager : NetworkBehaviour
         {
             if (chatInput.isFocused)
             {
+                print("ChatInput_Update");
                 SendChatMessage(chatInput.text);
                 chatInput.text = "";
             }

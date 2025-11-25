@@ -5281,7 +5281,7 @@ MonoBehaviour:
   toggleCustomizationButton: {fileID: 414954600}
   toggleChatButton: {fileID: 639990703}
   characterCustomizationPanel: {fileID: 1110579927}
-  chatView: {fileID: 1929054065}
+  chatView: {fileID: 1972527541}
   ScriptChido: {fileID: 210171461}
 --- !u!114 &210171461
 MonoBehaviour:
@@ -47732,11 +47732,6 @@ Transform:
   - {fileID: 1641221449}
   m_Father: {fileID: 1447837262}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1929054065 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5244396657832116416, guid: f24276e3bee74b8428285a50d9af4304, type: 3}
-  m_PrefabInstance: {fileID: 440821028}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1934546226
 PrefabInstance:
   m_ObjectHideFlags: 0

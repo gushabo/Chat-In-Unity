@@ -54,7 +54,7 @@ public class BubbleChatInput : MonoBehaviour
         }
         else
         {
-            Debug.Log("[BubbleInput] LocalBubble cacheado correctamente");
+            //Debug.Log("[BubbleInput] LocalBubble cacheado correctamente");
         }
     }
 
@@ -62,6 +62,8 @@ public class BubbleChatInput : MonoBehaviour
     {
         if (bubbleInput == null) return;
 
+        print("BubbleChatInput_Funcion");
+        
         string msg = bubbleInput.text;
 
         if (string.IsNullOrWhiteSpace(msg)) return;
