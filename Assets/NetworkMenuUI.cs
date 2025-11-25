@@ -26,7 +26,7 @@ public class NetworkMenuUI : MonoBehaviour
 
     private void StartAsHost()
     {
-        Debug.Log("Iniciando como HOST...");
+        //Debug.Log("Iniciando como HOST...");
         //NetworkManager.Singleton.StartHost();
         ScriptChido.StartRelay();
         SwitchToCustomizationPanel();
@@ -34,7 +34,7 @@ public class NetworkMenuUI : MonoBehaviour
 
     private void StartAsClient()
     {
-        Debug.Log("Iniciando como CLIENT...");
+        //Debug.Log("Iniciando como CLIENT...");
         //NetworkManager.Singleton.StartClient();
         ScriptChido.JoinRelay();
         SwitchToCustomizationPanel();

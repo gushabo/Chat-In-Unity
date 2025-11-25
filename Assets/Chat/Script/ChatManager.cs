@@ -23,6 +23,7 @@ public class ChatManager : NetworkBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            print("ChatManager");
             SendChatMessage(chatInput.text, playerName);
             chatInput.text = "";
 

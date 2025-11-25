@@ -11,7 +11,7 @@ public class PlayerChatBubble : NetworkBehaviour
     [SerializeField] private GameObject bubbleRoot;    // El canvas/fondo de la burbuja
     [SerializeField] private TextMeshProUGUI chatText; // El texto dentro de la burbuja
 
-    [Header("Parámetros")]
+    [Header("Parï¿½metros")]
     [SerializeField] private float showTime = 4f;      // Segundos visibles antes de ocultarse
 
     // Mensaje sincronizado en red
@@ -32,7 +32,7 @@ public class PlayerChatBubble : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        Debug.Log($"[Bubble] OnNetworkSpawn en {name}, IsOwner = {IsOwner}, IsLocalPlayer = {IsLocalPlayer}");
+        //Debug.Log($"[Bubble] OnNetworkSpawn en {name}, IsOwner = {IsOwner}, IsLocalPlayer = {IsLocalPlayer}");
 
         message.OnValueChanged += OnMessageChanged;
 
@@ -48,7 +48,7 @@ public class PlayerChatBubble : NetworkBehaviour
     private void OnMessageChanged(FixedString128Bytes oldValue, FixedString128Bytes newValue)
     {
         string text = newValue.ToString();
-        Debug.Log($"[Bubble] {name} OnMessageChanged: '{oldValue}' -> '{newValue}'");
+        //Debug.Log($"[Bubble] {name} OnMessageChanged: '{oldValue}' -> '{newValue}'");
 
         if (chatText != null)
             chatText.text = text;
@@ -72,7 +72,7 @@ public class PlayerChatBubble : NetworkBehaviour
         // Borramos el mensaje (esto se replica)
         if (IsOwner)
         {
-            Debug.Log($"[Bubble] {name} limpiando mensaje después de {showTime}s");
+            //Debug.Log($"[Bubble] {name} limpiando mensaje despuï¿½s de {showTime}s");
             message.Value = string.Empty;
         }
     }
@@ -89,10 +89,10 @@ public class PlayerChatBubble : NetworkBehaviour
         }
     }
 
-    // === API pública para el jugador local ===
+    // === API pï¿½blica para el jugador local ===
     public void SendChat(string msg)
     {
-        Debug.Log($"[Bubble] {name} SendChat('{msg}') IsOwner={IsOwner}");
+        //Debug.Log($"[Bubble] {name} SendChat('{msg}') IsOwner={IsOwner}");
 
         if (!IsOwner) return;
         if (string.IsNullOrWhiteSpace(msg)) return;
