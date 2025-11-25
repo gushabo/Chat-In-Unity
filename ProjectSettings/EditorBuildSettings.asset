@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Multiplayer.unity
     guid: 5da57a65f38c7834983481b2180b5fdd
+  - enabled: 1
+    path: Assets/Scenes/MultiplayerJulio.unity
+    guid: 597d4d5eefd2cab45ac53b03a429e08c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
