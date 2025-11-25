@@ -22,6 +22,7 @@ public class GameDataManager : MonoBehaviour
     public void SetPlayerName(string name)
     {
         playerName = string.IsNullOrWhiteSpace(name) ? "Player" : name;
+        ChatManager.instance.playerName = playerName;
         Debug.Log($"Nombre guardado: {playerName}");
     }
 }

@@ -5,7 +5,7 @@ using Unity.Collections;
 
 public class PlayerNameDisplay : NetworkBehaviour
 {
-    [Header("Configuración")]
+    [Header("Configuraciï¿½n")]
     public float verticalOffset = 2.0f; // Altura sobre el player
     public Color textColor = Color.white;
     public int fontSize = 24;
@@ -42,7 +42,7 @@ public class PlayerNameDisplay : NetworkBehaviour
         nameText.alignment = TextAlignmentOptions.Center;
         nameText.fontSize = fontSize;
         nameText.color = textColor;
-        nameText.sortingOrder = 1000; // Para que esté por encima de otros objetos
+        nameText.sortingOrder = 1000; // Para que estï¿½ por encima de otros objetos
 
         // Configurar el RectTransform si existe
         var rectTransform = nameDisplay.GetComponent<RectTransform>();
@@ -101,7 +101,7 @@ public class PlayerNameDisplay : NetworkBehaviour
 
     private void Update()
     {
-        // Hacer que el texto siempre mire hacia la cámara
+        // Hacer que el texto siempre mire hacia la cï¿½mara
         if (nameDisplay != null && Camera.main != null)
         {
             nameDisplay.transform.LookAt(nameDisplay.transform.position + Camera.main.transform.rotation * Vector3.forward,
