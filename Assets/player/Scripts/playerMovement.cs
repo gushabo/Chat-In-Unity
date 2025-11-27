@@ -18,6 +18,8 @@ public class playerMovement : MonoBehaviour
 
     private ClientPlayerMove net;
 
+    public Vector3 move;
+
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -42,7 +44,7 @@ public class playerMovement : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float z = Input.GetAxisRaw("Vertical");
 
-        Vector3 move = transform.right * x + transform.forward * z;
+        move = transform.right * x + transform.forward * z;
 
         if (move.magnitude > 1f)
             move.Normalize();

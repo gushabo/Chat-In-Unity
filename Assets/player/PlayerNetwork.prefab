@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6563142852833640614}
   - component: {fileID: 5659975112749487705}
   - component: {fileID: 7793877347587721524}
+  - component: {fileID: 8679972601968536716}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -76,6 +77,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8679972601968536716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136171663477310604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1286444545
+      Data2: 1216153832
+      Data3: -1269890113
+      Data4: 951436030
+    Path: event:/popup
+  Event: 
+  EventPlayTrigger: 11
+  EventStopTrigger: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &731404809329646705
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,7 +275,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Texto sexual
+  m_text: ' '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -270,7 +302,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.5
+  m_fontSize: 10
   m_fontSizeBase: 2.5
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -333,6 +365,7 @@ GameObject:
   - component: {fileID: 6593027449042180762}
   - component: {fileID: 1630761687712808930}
   - component: {fileID: 7089283698988660669}
+  - component: {fileID: 4203035855070201527}
   m_Layer: 0
   m_Name: PlayerNetwork
   m_TagString: Untagged
@@ -450,6 +483,7 @@ MonoBehaviour:
   gravity: -9.81
   jumpHeight: 2
   spriteObject: {fileID: 8309052154834525109}
+  move: {x: 0, y: 0, z: 0}
 --- !u!143 &8639133308351754813
 CharacterController:
   m_ObjectHideFlags: 0
@@ -626,6 +660,28 @@ MonoBehaviour:
   verticalOffset: 2
   textColor: {r: 1, g: 1, b: 1, a: 1}
   fontSize: 5
+--- !u!114 &4203035855070201527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7153345640739653244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 559d00ea3ac7cce42a81cb6778a832db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventReference:
+    Guid:
+      Data1: -1425249946
+      Data2: 1078487503
+      Data3: 1470211213
+      Data4: -435291107
+    Path: event:/footsteps
+  rate: 0.2
+  player: {fileID: 7153345640739653244}
+  playerMovimiento: {fileID: 4904032065198699541}
 --- !u!1 &8309052154834525109
 GameObject:
   m_ObjectHideFlags: 0
