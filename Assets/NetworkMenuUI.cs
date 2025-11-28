@@ -12,6 +12,7 @@ public class NetworkMenuUI : MonoBehaviour
     public Button hostButton;
     public Button clientButton;
 
+    public a ScriptChido;
     private void Start()
     {
         // Aseguramos estado inicial
@@ -26,17 +27,18 @@ public class NetworkMenuUI : MonoBehaviour
     private void StartAsHost()
     {
         Debug.Log("Iniciando como HOST...");
-        NetworkManager.Singleton.StartHost();
-
+        //NetworkManager.Singleton.StartHost();
+        ScriptChido.StartRelay();
         SwitchToCustomizationPanel();
     }
 
     private void StartAsClient()
     {
         Debug.Log("Iniciando como CLIENT...");
-        NetworkManager.Singleton.StartClient();
-
+        //NetworkManager.Singleton.StartClient();
+        ScriptChido.JoinRelay();
         SwitchToCustomizationPanel();
+
     }
 
     private void SwitchToCustomizationPanel()
