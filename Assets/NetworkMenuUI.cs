@@ -14,7 +14,7 @@ public class NetworkMenuUI : MonoBehaviour
     public Button hostButton;
     public Button clientButton;
     public Button toggleCustomizationButton;
-    public Button toggleChatButton; // Nuevo bot髇 para chat
+    public Button toggleChatButton; // Nuevo bot贸n para chat
 
     [Header("Customization Panel")]
     public GameObject characterCustomizationPanel;
@@ -40,15 +40,15 @@ public class NetworkMenuUI : MonoBehaviour
         hostButton.onClick.AddListener(() => StartConnection(true));
         clientButton.onClick.AddListener(() => StartConnection(false));
 
-        // Bot髇 para mostrar/ocultar personalizaci髇
+        // Bot贸n para mostrar/ocultar personalizaci贸n
         if (toggleCustomizationButton != null)
             toggleCustomizationButton.onClick.AddListener(ToggleCustomizationPanel);
 
-        // Bot髇 para mostrar/ocultar chat
+        // Bot贸n para mostrar/ocultar chat
         if (toggleChatButton != null)
             toggleChatButton.onClick.AddListener(ToggleChatView);
 
-        // Enter para conectar (act鷄 como host por defecto)
+        // Enter para conectar (act煤a como host por defecto)
         nameInputField.onSubmit.AddListener((text) => StartConnection(true));
 
         // Escuchar cambios en el input field
@@ -59,7 +59,7 @@ public class NetworkMenuUI : MonoBehaviour
     {
         bool hasValidName = !string.IsNullOrWhiteSpace(nameInputField.text);
 
-        // Habilitar/deshabilitar botones seg鷑 si hay nombre
+        // Habilitar/deshabilitar botones seg煤n si hay nombre
         hostButton.interactable = hasValidName;
         clientButton.interactable = hasValidName;
     }
@@ -78,17 +78,17 @@ public class NetworkMenuUI : MonoBehaviour
             GameDataManager.Instance.SetPlayerName(nameInputField.text);
         }
 
-        // Cambiar a panel de personalizaci髇
+        // Cambiar a panel de personalizaci贸n
         if (startPanel != null) startPanel.SetActive(false);
         if (customizationPanel != null) customizationPanel.SetActive(true);
 
-        // Mostrar botones de personalizaci髇 y chat
+        // Mostrar botones de personalizaci贸n y chat
         if (toggleCustomizationButton != null)
             toggleCustomizationButton.gameObject.SetActive(true);
         if (toggleChatButton != null)
             toggleChatButton.gameObject.SetActive(true);
 
-        // Iniciar conexi髇
+        // Iniciar conexi贸n
         if (isHost)
         {
             Debug.Log("Iniciando como HOST...");

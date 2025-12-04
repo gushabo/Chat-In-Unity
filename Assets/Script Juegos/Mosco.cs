@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.VFX;
 
 public class Mosco : MonoBehaviour
 {
@@ -84,16 +85,13 @@ public class Mosco : MonoBehaviour
     {
         if (!puedeClickear)
         {
-            Debug.Log($"❌ Intento de click en Mosco {name} DURANTE COOLDOWN.");
             return;
         }
 
         if (!GameManager.juegoTerminado)
         {
-            Debug.Log($"🟡 Mosco {name} clickeado → inicia cooldown de {cooldownClick} segundos.");
             puedeClickear = false;
             tiempoCooldown = cooldownClick;
-
             gm.SumarPuntos(puntosPorMatar);
             Destroy(gameObject);
         }
