@@ -2,83 +2,100 @@
 
 public class Mosco : MonoBehaviour
 {
-    public float Velocidad = 5f;
-    private GameManager JuegoManager;
-    private bool Muerto = false;
+    public float velocidad = 2f;
+    public float amplitudLateral = 0.5f;
+    public float frecuenciaLateral = 2f;
+    public int puntosPorMatar = 1;
 
-    // Delay entre clics
-    public float delayClick = 1f;
-    private bool puedeClic = true;
+    [Header("Cooldown para evitar múltiples clics")]
+    public float cooldownClick = 0.3f;
+    private bool puedeClickear = true;
+    private float tiempoCooldown = 0f;
 
-    // Movimiento aleatorio
-    private Vector3 direccionActual;
-    private float tiempoCambioDireccion;
+    private Vector3 posInicial;
+    private float tiempoOffset;
+    private GameManager gm;
 
     void Start()
     {
-        JuegoManager = FindFirstObjectByType<GameManager>();
+        posInicial = transform.position;
+        tiempoOffset = Random.Range(0f, 2f);
 
-        CambiarDireccion();
-        tiempoCambioDireccion = Random.Range(0.3f, 1.2f);
+        gm = FindObjectOfType<GameManager>();
+
+        if (gm == null)
+            Debug.LogError("❌ Mosco NO encontró GameManager.");
     }
 
     void Update()
     {
-        if (Muerto) return;
+        if (GameManager.juegoTerminado) return;
 
-        transform.Translate(direccionActual * Velocidad * Time.deltaTime);
+        // Movimiento hacia arriba
+        transform.position += Vector3.up * velocidad * Time.deltaTime;
 
-        tiempoCambioDireccion -= Time.deltaTime;
-        if (tiempoCambioDireccion <= 0)
+        // Zig-zag lateral
+        float desplazamientoX = Mathf.Sin(Time.time * frecuenciaLateral + tiempoOffset) * amplitudLateral;
+        transform.position = new Vector3(
+            posInicial.x + desplazamientoX,
+            transform.position.y,
+            transform.position.z
+        );
+
+        // Cooldown debug
+        if (!puedeClickear)
         {
-            CambiarDireccion();
-            tiempoCambioDireccion = Random.Range(0.3f, 1.2f);
+            tiempoCooldown -= Time.deltaTime;
+
+            if (tiempoCooldown <= 0f)
+            {
+                puedeClickear = true;
+                Debug.Log($"🟢 Cooldown terminado → Mosco {name} ya puede clickearse otra vez.");
+            }
         }
 
-        if (SalioDePantalla())
+        // Si sale de pantalla
+        float limiteY = Camera.main.orthographicSize + 1f;
+
+        if (transform.position.y > limiteY)
         {
-            JuegoManager.PerderVida();
+            if (!GameManager.juegoTerminado)
+                gm.PerderVida();
+
+            Respawn();
+        }
+    }
+
+    void Respawn()
+    {
+        float limiteX = Camera.main.orthographicSize * Camera.main.aspect;
+
+        float nuevoX = Random.Range(-limiteX, limiteX);
+        float nuevoY = -Camera.main.orthographicSize - 1f;
+
+        transform.position = new Vector3(nuevoX, nuevoY, 0f);
+        posInicial = transform.position;
+
+        puedeClickear = true; // Se reinicia el cooldown al respawnear
+        Debug.Log($"🔄 Respawn del Mosco {name} → cooldown reiniciado.");
+    }
+
+    void OnMouseDown()
+    {
+        if (!puedeClickear)
+        {
+            Debug.Log($"❌ Intento de click en Mosco {name} DURANTE COOLDOWN.");
+            return;
+        }
+
+        if (!GameManager.juegoTerminado)
+        {
+            Debug.Log($"🟡 Mosco {name} clickeado → inicia cooldown de {cooldownClick} segundos.");
+            puedeClickear = false;
+            tiempoCooldown = cooldownClick;
+
+            gm.SumarPuntos(puntosPorMatar);
             Destroy(gameObject);
         }
-    }
-
-    private void OnMouseDown()
-    {
-        if (!puedeClic) return; // ⛔ NO puedes clic aún
-        if (Muerto) return;
-
-        // Bloquea clics por 1 segundo
-        puedeClic = false;
-        Invoke(nameof(ReactivarClick), delayClick);
-
-        // Lógica de muerte
-        Muerto = true;
-        JuegoManager.SumarPuntos();
-        Destroy(gameObject);
-    }
-
-    void ReactivarClick()
-    {
-        puedeClic = true;
-    }
-
-    void CambiarDireccion()
-    {
-        float x = Random.Range(-1f, 1f);
-        float y = Random.Range(0.3f, 1f);
-        direccionActual = new Vector3(x, y, 0).normalized;
-    }
-
-    bool SalioDePantalla()
-    {
-        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
-
-        if (pos.y > 1f && pos.y > 0.5f)
-            return true;
-
-        if (pos.x < 0f || pos.x > 1f)
-            return true;
-
-        return false;
     }
 }

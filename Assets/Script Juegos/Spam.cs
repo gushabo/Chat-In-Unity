@@ -2,23 +2,26 @@
 
 public class Spam : MonoBehaviour
 {
-    public GameObject MoscoPrefab;
-    public float Inter = 1f;
-    public float RangoX = 10f;
+    public GameObject moscoPrefab;
+    public float intervalo = 1f;
+    public float rangoX = 8f;
 
-    private GameManager gamemanager;
+    private GameObject moscoActivo;
 
     void Start()
     {
-        gamemanager = FindFirstObjectByType<GameManager>(); // ← actualizado
-        InvokeRepeating(nameof(SpamMosco), 1f, Inter);
+        InvokeRepeating(nameof(SpawnearMosco), 0f, intervalo);
     }
 
-    void SpamMosco()
+    void SpawnearMosco()
     {
-        if (gamemanager == null || !gamemanager.enabled) return;
+        // Si ya hay una mosca viva → NO crear otra
+        if (moscoActivo != null) return;
 
-        Vector3 Pocision = new Vector3(Random.Range(-RangoX, RangoX), -5.5f, 0f);
-        Instantiate(MoscoPrefab, Pocision, Quaternion.identity);
+        float x = Random.Range(-rangoX, rangoX);
+        float y = -Camera.main.orthographicSize - 1f; // Debajo de la cámara
+        Vector3 posicion = new Vector3(x, y, 0f);
+
+        moscoActivo = Instantiate(moscoPrefab, posicion, Quaternion.identity);
     }
 }

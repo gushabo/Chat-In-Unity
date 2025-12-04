@@ -366,6 +366,7 @@ GameObject:
   - component: {fileID: 1630761687712808930}
   - component: {fileID: 7089283698988660669}
   - component: {fileID: 4203035855070201527}
+  - component: {fileID: 3291277782232308028}
   m_Layer: 0
   m_Name: PlayerNetwork
   m_TagString: Untagged
@@ -682,6 +683,19 @@ MonoBehaviour:
   rate: 0.2
   player: {fileID: 7153345640739653244}
   playerMovimiento: {fileID: 4904032065198699541}
+--- !u!114 &3291277782232308028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7153345640739653244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6303b9b9b92086644b7dc2cb72d45fbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanvasBoton: {fileID: 0}
 --- !u!1 &8309052154834525109
 GameObject:
   m_ObjectHideFlags: 0

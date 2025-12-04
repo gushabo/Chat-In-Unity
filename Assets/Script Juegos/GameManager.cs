@@ -1,93 +1,163 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public int puntos = 0;
+    [Header("Valores del juego")]
     public int vidas = 3;
-    public float tiempo = 60f;
-    public Text textoPuntos;
-    public Text textoVidas;
-    public Text textoTiempo;
-    public bool juegoTerminado = false;
+    public int puntos = 0;
+    public float tiempoJuego = 60f;
 
-    private Record puntajes;
-    private UIManager ui;
+    [Header("UI")]
+    public Text textoVidas;
+    public Text textoPuntos;
+    public Text textoTiempo;
+
+    [Header("Paneles")]
+    public GameObject panelGameOver;
+    public GameObject panelGanar;
+
+    public static bool juegoTerminado = false;
 
     void Start()
     {
-        puntajes = FindFirstObjectByType<Record>();
-        ui = FindFirstObjectByType<UIManager>();
+        ActualizarVidas();
+        ActualizarPuntos();
+        ActualizarTiempo();
 
-        ActualizarUI();
+        if (panelGameOver != null) panelGameOver.SetActive(false);
+        if (panelGanar != null) panelGanar.SetActive(false);
+
+        juegoTerminado= false;
     }
 
     void Update()
     {
-        if (!juegoTerminado)
+        if (juegoTerminado) return;
+
+        tiempoJuego -= Time.deltaTime;
+        ActualizarTiempo();
+
+        if (tiempoJuego <= 0)
         {
-            tiempo -= Time.deltaTime;
-
-            // 🟢 Cuando el tiempo llega a cero → GANAS
-            if (tiempo <= 0)
-            {
-                tiempo = 0;
-                GanarPartida();
-            }
-
-            ActualizarUI();
+            tiempoJuego = 0;
+            GanarJuego();
         }
     }
 
-    public void SumarPuntos()
-    {
-        puntos++;
-        ActualizarUI();
-        // ❌ Ya NO gana por puntos
-    }
-
+    // -----------------------------
+    // RESTAR VIDA
+    // -----------------------------
     public void PerderVida()
     {
-        vidas--;
-        ActualizarUI();
+        if (juegoTerminado) return;
 
-        // 🟥 Si pierde todas las vidas → Game Over
+        vidas--;
+        Debug.Log("🟥 VIDA PERDIDA. Vidas actuales: " + vidas);
+
+        ActualizarVidas();
+
         if (vidas <= 0)
         {
-            TerminarJuego();
+            GameOver();
         }
     }
 
-    void ActualizarUI()
-    {
-        textoPuntos.text = "Puntos: " + puntos;
-        textoVidas.text = "Vidas: " + vidas;
-        textoTiempo.text = "Tiempo: " + tiempo.ToString("F0");
-    }
-
-    void TerminarJuego()
+    // -----------------------------
+    // SUMAR PUNTOS
+    // -----------------------------
+    public void SumarPuntos(int cantidad)
     {
         if (juegoTerminado) return;
 
-        juegoTerminado = true;
-
-        if (puntajes != null)
-            puntajes.GuardarPuntajeJuego("Jugador", puntos);
-
-        SceneManager.LoadScene("GameOver");
+        puntos += cantidad;
+        ActualizarPuntos();
     }
 
-    // 🟢 NUEVO — GANAR SOLO POR TIEMPO
-    void GanarPartida()
+    // -----------------------------
+    // GAME OVER
+    // -----------------------------
+    void GameOver()
     {
-        if (juegoTerminado) return;
+        Debug.Log("🔥 SE ACTIVÓ GAME OVER");
 
         juegoTerminado = true;
 
-        if (puntajes != null)
-            puntajes.GuardarPuntajeJuego("Jugador", puntos);
+        if (panelGameOver != null)
+        {
+            panelGameOver.SetActive(true);
 
-        SceneManager.LoadScene("Ganaste");
+            Canvas canvas = panelGameOver.GetComponentInParent<Canvas>();
+            if (canvas != null)
+            {
+                canvas.enabled = true;
+                canvas.sortingOrder = 999;
+            }
+        }
+    }
+
+    // -----------------------------
+    // GANAR
+    // -----------------------------
+    void GanarJuego()
+    {
+        Debug.Log("🏆 SE ACTIVÓ GANAR");
+
+        juegoTerminado = true;
+
+        if (panelGanar != null)
+        {
+            panelGanar.SetActive(true);
+
+            Canvas canvas = panelGanar.GetComponentInParent<Canvas>();
+            if (canvas != null)
+            {
+                canvas.enabled = true;
+                canvas.sortingOrder = 999;
+            }
+        }
+    }
+
+    // -----------------------------
+    // UI
+    // -----------------------------
+    void ActualizarVidas()
+    {
+        if (textoVidas != null)
+            textoVidas.text = "Vidas: " + vidas;
+    }
+
+    void ActualizarPuntos()
+    {
+        if (textoPuntos != null)
+            textoPuntos.text = "Puntos: " + puntos;
+    }
+
+    void ActualizarTiempo()
+    {
+        if (textoTiempo != null)
+            textoTiempo.text = "Tiempo: " + Mathf.CeilToInt(tiempoJuego);
+    }
+
+
+    // =====================================================
+    // 🔵 FUNCIÓN NUEVA — REINICIAR PARTIDA
+    // =====================================================
+    public void ReiniciarPartida()
+    {
+        juegoTerminado = false;
+
+        vidas = 3;
+        puntos = 0;
+        tiempoJuego = 60f;
+
+        ActualizarVidas();
+        ActualizarPuntos();
+        ActualizarTiempo();
+
+        if (panelGameOver != null) panelGameOver.SetActive(false);
+        if (panelGanar != null) panelGanar.SetActive(false);
+
+        Debug.Log("🔄 Partida reiniciada.");
     }
 }

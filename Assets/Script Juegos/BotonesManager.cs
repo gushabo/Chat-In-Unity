@@ -1,30 +1,18 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 public class BotonesManager : MonoBehaviour
 {
-    //Funcion para iniciar juego
-    public void JugarGame()
-    {
-        SceneManager.LoadScene("Juego");
-    }
+    public GameManager gameManager; // <-- Esto debe asignarse
 
-    //Menu principal
-    public void MenuPrincipal()
+    public void ReiniciarPartida()
     {
-        SceneManager.LoadScene("Menu");
-    }
-
-    //Record De jugadores
-    public void TopPuntaje()
-    {
-        SceneManager.LoadScene("Puntaje");
-    }
-
-    //Salida del juego completamente
-    public void Salirjuego()
-    {
-        Debug.Log("Salida del juego");
-        Application.Quit();
+        if (gameManager != null)
+        {
+            gameManager.ReiniciarPartida();
+        }
+        else
+        {
+            Debug.LogError("❌ BotonesManager: gameManager no está asignado en el Inspector.");
+        }
     }
 }
