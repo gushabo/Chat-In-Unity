@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/BankSound/Build/Desktop/GameAudio.bank
   Name: GameAudio
   StudioPath: bank:/GameAudio
-  lastModified: 639004367166663349
+  lastModified: 638995400220000000
   FileSizes: []
   Exists: 1
 --- !u!114 &-1422491138500709605
@@ -98,7 +98,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 64409963414822859}
   cacheVersion: 131857
-  cacheTime: 639004367166685154
+  cacheTime: 638995400220000000
   SerializableEventsDict:
   - key: event:/footsteps
     index: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/BankSound/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639004367166685154
+  lastModified: 638995400160000000
   FileSizes:
   - Name: 
     Value: 910
@@ -141,7 +141,7 @@ MonoBehaviour:
   Path: Assets/FMOD Banks/BankSound/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639004367166685154
+  lastModified: 638995400160000000
   FileSizes: []
   Exists: 1
 --- !u!114 &5198143181348885351

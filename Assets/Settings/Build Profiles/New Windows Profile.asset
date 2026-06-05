@@ -24,7 +24,7 @@ MonoBehaviour:
     m_path: Assets/Scenes/MenuInicial.unity
   - m_enabled: 1
     m_path: Assets/Scenes/TareaPEPE.unity
-  - m_enabled: 1
+  - m_enabled: 0
     m_path: Assets/Scenes/MultiplayerJulio.unity
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:

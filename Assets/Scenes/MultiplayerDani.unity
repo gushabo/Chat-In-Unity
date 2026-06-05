@@ -467,8 +467,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPanel: {fileID: 478848936}
   customizationPanel: {fileID: 1110579927}
+  nameInputField: {fileID: 0}
   hostButton: {fileID: 1109026083}
   clientButton: {fileID: 689719675}
+  toggleCustomizationButton: {fileID: 0}
+  toggleChatButton: {fileID: 0}
+  characterCustomizationPanel: {fileID: 0}
+  chatView: {fileID: 0}
+  ScriptChido: {fileID: 0}
 --- !u!1 &478848936
 GameObject:
   m_ObjectHideFlags: 0
